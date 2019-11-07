@@ -13,7 +13,7 @@ export class ItemComponent implements OnInit {
 
   ngOnInit() {}
 
-  setCompleted(completed: boolean) {
+  setCompleted(completed: boolean): void {
     this.todo.isCompleted = completed;
   }
 }
