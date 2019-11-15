@@ -1,20 +1,16 @@
-<div>
+<li *ngIf="todo.isCompleted">
+  <input (click)="OnClickSetIsCompletedTodo(false)"
+         type="checkbox"
+         name={{todo.name}}
+         checked />
+  <label><s>{{todo.name}}</s></label>
+  <button (click)="OnClickDeleteTodo()">X</button>
+</li>
 
-  <ng-template *ngIf="todo.isCompleted; else unchecked">
-    <input (click)="setCompleted(true)"
-           type="checkbox"
-           name={{todo.name}}
-           checked />
-    <label> Id: {{todo.id}}</label>
-    <label> Name: <s>{{todo.name}}</s></label>
-  </ng-template>
-
-  <ng-template #unchecked>
-    <input (click)="setCompleted(true)"
-           type="checkbox"
-           name={{todo.name}} />
-    <label> Id: {{todo.id}}</label>
-    <label> Name: {{todo.name}}</label>
-  </ng-template>
-
-</div>
+<li *ngIf="!todo.isCompleted">
+  <input (click)="OnClickSetIsCompletedTodo(true)"
+         type="checkbox"
+         name={{todo.name}} />
+  <label>{{todo.name}}</label>
+  <button (click)="OnClickDeleteTodo()">X</button>
+</li>

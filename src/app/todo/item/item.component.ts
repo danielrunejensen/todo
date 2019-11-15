@@ -1,5 +1,5 @@
 import { Todo } from '../todo';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-item',
@@ -8,12 +8,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
   @Input() todo: Todo;
+  @Output() deleteTodo = new EventEmitter<number>();
+  @Output() setIsCompletedTodo = new EventEmitter<object>();
 
   constructor() {}
 
   ngOnInit() {}
 
-  setCompleted(completed: boolean): void {
-    this.todo.isCompleted = completed;
+  OnClickSetIsCompletedTodo(isCompleted: boolean): void {
+    this.setIsCompletedTodo.emit({ id: this.todo.id, isCompleted });
+  }
+
+  OnClickDeleteTodo(): void {
+    this.deleteTodo.emit(this.todo.id);
   }
 }

@@ -1,1 +1,14 @@
-<p>footer works!</p>
+<div>
+  <label>{{activeTodoesCount}} items left</label>
+  <input (click)="OnClickSetShowTodoes(SHOW.ALL)"
+         type="radio"
+         name="todoFilter"
+         checked> All
+  <input (click)="OnClickSetShowTodoes(SHOW.ACTIVE)"
+         type="radio"
+         name="todoFilter"> Active
+  <input (click)="OnClickSetShowTodoes(SHOW.COMPLETED)"
+         type="radio"
+         name="todoFilter"> Completed
+  <button (click)="OnClickClearAllCompletedTodoes()">Clear all completed</button>
+</div>

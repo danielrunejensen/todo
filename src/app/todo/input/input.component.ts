@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -6,14 +7,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./input.component.css'],
 })
 export class InputComponent implements OnInit {
-  todoes = [];
-  @Output() todoNameInput = new EventEmitter<string>();
+  inputForm = new FormControl();
+  @Output() createTodo = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit() {}
 
-  OnTodoInput(todoName: string) {
-    this.todoNameInput.emit(todoName);
+  OnKeyUpEnterCreateTodo(todoName: string) {
+    this.inputForm.reset();
+    this.createTodo.emit(todoName);
   }
 }

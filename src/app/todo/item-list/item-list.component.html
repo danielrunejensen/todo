@@ -1,3 +1,7 @@
 <div *ngFor="let todo of todoes">
-  <app-item [todo]="todo"></app-item>
+  <ul>
+    <app-item [todo]="todo"
+              (deleteTodo)="OnDeleteTodo($event)"
+              (setIsCompletedTodo)="OnSetIsCompletedTodo($event)"></app-item>
+  </ul>
 </div>

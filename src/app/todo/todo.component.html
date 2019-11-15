@@ -1,4 +1,10 @@
-<h1>Todo</h1>
-<app-input (todoNameInput)="addTodo($event)"></app-input>
-<app-item-list [todoes]="todoes"></app-item-list>
-<app-footer></app-footer>
+<div>
+  <h1>Todo</h1>
+  <app-input (createTodo)="CreateTodo($event)"></app-input>
+  <app-item-list (deleteTodo)="DeleteTodo($event)"
+                 (setIsCompletedTodo)="SetIsCompletedTodo($event)"
+                 [todoes]="getTodoes()"></app-item-list>
+  <app-footer [activeTodoesCount]="activeTodoesCount"
+              (clearAllCompletedTodoes)="ClearAllCompletedTodoes()"
+              (setShowTodoes)="setShowTodoes($event)"></app-footer>
+</div>

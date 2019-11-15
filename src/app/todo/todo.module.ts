@@ -5,10 +5,11 @@ import { ItemComponent } from './item/item.component';
 import { TodoComponent } from './todo.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [TodoComponent, ItemListComponent, ItemComponent, FooterComponent, InputComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   exports: [TodoComponent],
 })
 export class TodoModule {}

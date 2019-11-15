@@ -1,3 +1,4 @@
 <input type="text"
        placeholder="What to do?"
-       (keyup.enter)="OnTodoInput($event.target.value)">
+       (keyup.enter)="OnKeyUpEnterCreateTodo($event.target.value)"
+       [formControl]="inputForm">

@@ -1,5 +1,5 @@
 import { Todo } from '../todo';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-item-list',
@@ -8,8 +8,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ItemListComponent implements OnInit {
   @Input() todoes: Todo[];
+  @Output() deleteTodo = new EventEmitter<number>();
+  @Output() setIsCompletedTodo = new EventEmitter<object>();
 
   constructor() {}
 
   ngOnInit() {}
+
+  OnDeleteTodo(todoId: number): void {
+    this.deleteTodo.emit(todoId);
+  }
+
+  OnSetIsCompletedTodo(object): void {
+    this.setIsCompletedTodo.emit(object);
+  }
 }
